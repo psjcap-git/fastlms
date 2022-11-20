@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zerobase.fastlms.admin.mapper.LoginHistoryMapper">
+
+    <select id="selectCountByUserId" resultType="long">
+        select count(id)
+        from login_history
+        where user_id = #{userId} 
+    </select>
+
+    <select id="selectListByUserId" resultType="com.zerobase.fastlms.admin.dto.LoginHistoryDto">
+        select *
+        from login_history
+        where user_id = #{userId} 
+        limit #{pageStart}, #{pageSize}
+    </select>
+
+
+</mapper>
